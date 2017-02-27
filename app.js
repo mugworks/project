@@ -1,17 +1,17 @@
 'use strict';
 var button = document.querySelector('button');
 var audio = document.querySelector('audio');
-var imagesUL = document.getElementById('album_covers');
+var section = document.querySelector('section');
 var counter = 0;
 
 var media = [
   {
-    song: 'https://raw.githubusercontent.com/themarquisdesheric/first_repo/master/DedNd%20by%20Gonjasufi.mp3',    //song src
-    choice1: 'solange.jpg', //album art 
-    choice2: 'lemonade.jpg',
-    choice3: 'rihanna.jpg',
-    choice4: 'laurynhill.jpg',
-    answer: 'solange.jpg' //src of correct answer
+    song: 'https://raw.githubusercontent.com/72rpm/project/master/songs/Cranes%20in%20the%20Sky.mp3',    //song src
+    choice1: 'images/solange.jpg',//album art 
+    choice2: 'images/lemonade.jpg',
+    choice3: 'images/rihanna.jpg',
+    choice4: 'images/laurynhill.jpg',
+    answer: 'images/solange.jpg' //src of correct answer
   }//,
   // {
   //   song: ,    //song src
@@ -46,12 +46,12 @@ var album4 = document.getElementById('Album4');
 var items = [];
 var indexOne = 0;
 var indexTwo = 1;
-var indexThee = 2;
+var indexThree = 2;
 var indexFour = 3;
 
 button.addEventListener('click', playClickHandler);
-audio.src = 'https://raw.githubusercontent.com/themarquisdesheric/first_repo/master/DedNd%20by%20Gonjasufi.mp3';
-imagesUL.addEventListener('click', imagesClickHandler);
+audio.src = media[0].song;
+section.addEventListener('click', imagesClickHandler);
 
 
 
@@ -72,7 +72,7 @@ function imagesClickHandler(event) {
 }
 
 function generateRandomNumber(){
-  return Math.floor(Math.random() * pathToAssets.length);
+  //return Math.floor(Math.random() * pathToAssets.length);
 }
 
 function displayQuiz() {
@@ -94,4 +94,3 @@ function displayQuiz() {
 
   }
 }
-
