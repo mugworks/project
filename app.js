@@ -1,17 +1,27 @@
 'use strict';
 var button = document.querySelector('button');
 var audio = document.querySelector('audio');
-var imagesUL = document.getElementById('album_covers');
+var section = document.querySelector('section');
 var counter = 0;
+var album1 = document.getElementById('album1');
+var album2 = document.getElementById('album2');
+var album3 = document.getElementById('album3');
+var album4 = document.getElementById('album4');
+var items = [];
+var indexOne = 0;
+var indexTwo = 1;
+var indexThree = 2;
+var indexFour = 3;
+var userScore = 0;
 
 var media = [
   {
-    song: 'https://raw.githubusercontent.com/themarquisdesheric/first_repo/master/DedNd%20by%20Gonjasufi.mp3',    //song src
-    choice1: 'solange.jpg', //album art 
-    choice2: 'lemonade.jpg',
-    choice3: 'rihanna.jpg',
-    choice4: 'laurynhill.jpg',
-    answer: 'solange.jpg' //src of correct answer
+    song: 'https://raw.githubusercontent.com/72rpm/project/master/songs/Cranes%20in%20the%20Sky.mp3',    //song src
+    choice1: 'images/solange.jpg',//album art 
+    choice2: 'images/lemonade.jpg',
+    choice3: 'images/rihanna.jpg',
+    choice4: 'images/laurynhill.jpg',
+    answer: 'images/solange.jpg' //src of correct answer
   }//,
   // {
   //   song: ,    //song src
@@ -39,24 +49,6 @@ var media = [
   // }
 ];
 
-var album1 = document.getElementById('Album1');
-var album2 = document.getElementById('Album2');
-var album3 = document.getElementById('Album3');
-var album4 = document.getElementById('Album4');
-var items = [];
-var indexOne = 0;
-var indexTwo = 1;
-var indexThee = 2;
-var indexFour = 3;
-
-button.addEventListener('click', playClickHandler);
-audio.src = 'https://raw.githubusercontent.com/themarquisdesheric/first_repo/master/DedNd%20by%20Gonjasufi.mp3';
-imagesUL.addEventListener('click', imagesClickHandler);
-
-
-
-
-
 
 function playClickHandler() {
   audio.play();
@@ -72,48 +64,17 @@ function imagesClickHandler(event) {
 }
 
 function generateRandomNumber(){
-  return Math.floor(Math.random() * pathToAssets.length);
+  //return Math.floor(Math.random() * pathToAssets.length);
 }
 
 function displayQuiz() {
-  var randomIndex1 = generateRandomNumber();
-  var randomIndex2 = generateRandomNumber();
-  var randomIndex3 = generateRandomNumber();
-  var randomIndex4 = generateRandomNumber();
-
- while (randomIndex1 === indexOne || randomIndex1 === randomIndex2 || randomIndex1 === randomIndex3) {
-    randomIndex1 = generateRandomNumber();
-  }
-  while (randomIndex2 === indexTwo || randomIndex2 === randomIndex1 || randomIndex2 === randomIndex3) {
-    randomIndex2 = generateRandomNumber();
-  }
-  while (randomIndex3 === indexThree || randomIndex3 === randomIndex2 || randomIndex3 === randomIndex1) {
-    randomIndex3 = generateRandomNumber();
-  }
-  while (randomIndex4 === indexFour || randomIndex4) {
-
-  }
+  album1.src = media[0].choice1;
+  album2.src = media[0].choice2;
+  album3.src = media[0].choice3;
+  album4.src = media[0].choice4;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //start of Local Storage stuff
-var userScore = 0;
-
 function init() {
   var grabData = localStorage.getItem('localData');
   newPlayer = JSON.parse(grabData);
@@ -126,7 +87,34 @@ function init() {
 function saveData() {
   localStorage.setItem('localData', JSON.stringify(userScore) );
 }
+
+button.addEventListener('click', playClickHandler);
+audio.src = media[0].song;
+section.addEventListener('click', imagesClickHandler);
+displayQuiz();
 saveData();
+
+
+// random logic
+// var randomIndex1 = generateRandomNumber();
+//   var randomIndex2 = generateRandomNumber();
+//   var randomIndex3 = generateRandomNumber();
+//   var randomIndex4 = generateRandomNumber();
+
+//  while (randomIndex1 === indexOne || randomIndex1 === randomIndex2 || randomIndex1 === randomIndex3) {
+//     randomIndex1 = generateRandomNumber();
+//   }
+//   while (randomIndex2 === indexTwo || randomIndex2 === randomIndex1 || randomIndex2 === randomIndex3) {
+//     randomIndex2 = generateRandomNumber();
+//   }
+//   while (randomIndex3 === indexThree || randomIndex3 === randomIndex2 || randomIndex3 === randomIndex1) {
+//     randomIndex3 = generateRandomNumber();
+//   }
+//   while (randomIndex4 === indexFour || randomIndex4) {
+
+//   }
+
+
 
 
 
