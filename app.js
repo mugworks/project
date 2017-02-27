@@ -95,3 +95,41 @@ function displayQuiz() {
   }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//start of Local Storage stuff
+var userScore = 0;
+
+function init() {
+  var grabData = localStorage.getItem('localData');
+  newPlayer = JSON.parse(grabData);
+
+  if(grabData) {
+
+  }
+}
+
+function saveData() {
+  localStorage.setItem('localData', JSON.stringify(userScore) );
+}
+saveData();
+
+
+
+
+
+
