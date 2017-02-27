@@ -12,6 +12,7 @@ var indexOne = 0;
 var indexTwo = 1;
 var indexThree = 2;
 var indexFour = 3;
+var userScore = 0;
 
 var media = [
   {
@@ -73,10 +74,25 @@ function displayQuiz() {
   album4.src = media[0].choice4;
 }
 
+//start of Local Storage stuff
+function init() {
+  var grabData = localStorage.getItem('localData');
+  newPlayer = JSON.parse(grabData);
+
+  if(grabData) {
+
+  }
+}
+
+function saveData() {
+  localStorage.setItem('localData', JSON.stringify(userScore) );
+}
+
 button.addEventListener('click', playClickHandler);
 audio.src = media[0].song;
 section.addEventListener('click', imagesClickHandler);
 displayQuiz();
+saveData();
 
 
 // random logic
@@ -97,3 +113,11 @@ displayQuiz();
 //   while (randomIndex4 === indexFour || randomIndex4) {
 
 //   }
+
+
+
+
+
+
+
+
