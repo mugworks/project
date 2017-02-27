@@ -1,23 +1,43 @@
 'use strict';
 var button = document.querySelector('button');
 var audio = document.querySelector('audio');
-button.addEventListener('click', clickHandler);
+var counter = 0;
 
-function playlClickHandler() {
-  audio.play();
-  counter += 1;
-}
+var media = [
+  {
+    song: ,    //song src
+    choice1: , //album  art 
+    choice2: ,
+    choice3: ,
+    choice4: ,
+    answer:    //src of correct answer
+  },
+  {
+    song: ,    //song src
+    choice1: , //album  art 
+    choice2: ,
+    choice3: ,
+    choice4: ,
+    answer:    //src of correct answer
+  },
+  {
+    song: ,    //song src
+    choice1: , //album  art 
+    choice2: ,
+    choice3: ,
+    choice4: ,
+    answer:    //src of correct answer
+  },
+  {
+    song: ,    //song src
+    choice1: , //album  art 
+    choice2: ,
+    choice3: ,
+    choice4: ,
+    answer:    //src of correct answer
+  }
+];
 
-
-
-
-
-
-
-
-
-var pathToAssets = ['blabla.jpg', 'example', 'blablabla.jpg', 
- 'anotherexample.jpg']
 var album1 = document.getElementById('Album1');
 var album2 = document.getElementById('Album2');
 var album3 = document.getElementById('Album3');
@@ -28,7 +48,17 @@ var indexTwo = 1;
 var indexThee = 2;
 var indexFour = 3;
 
-fucntion ImagesclickHandler(event) {
+button.addEventListener('click', playClickHandler);
+
+
+
+
+function playClickHandler() {
+  audio.play();
+  counter += 1;
+}
+
+function imagesClickHandler(event) {
   //put picture changing function here...
   //place chart thing here ...
 }
@@ -37,7 +67,7 @@ function generateRandomNumber(){
   return Math.floor(Math.random() * pathToAssets.length);
 }
 
-funtion displayChart() {
+funtion displayQuiz() {
   var randomIndex1 = generateRandomNumber();
   var randomIndex2 = generateRandomNumber();
   var randomIndex3 = generateRandomNumber();
@@ -56,10 +86,3 @@ funtion displayChart() {
 
 }
 
-
-
-
-functon clikcHandler(){
-
-var testSong = document.getElementById('button')
-}
