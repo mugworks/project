@@ -1,4 +1,3 @@
-
 body {
     max-width: 940px;
     margin: 0px auto;
@@ -8,33 +7,61 @@ body {
 nav {
     max-width: 780px;
     float: right;
-    margin-top: 70px;
+    margin-top: 0px;
 }
 
 li {
-	display: inline;
-	margin: 0px 30px;
+    display: inline;
+    margin: 0px 30px;
 }
 
-.nav-button {
+.nav-button {   
+    height: 125px;
+    width: 125px;
+    border: none;
+}
+
+.nav_text{
+    text-align: center;
+    font-family: Helvetica;
+    font-weight: lighter;
+    color: black;
+  
+}
+
+a{
+    text-decoration: none;
+}
+
+.index_headline{
+    font-family: Helvetica;
+    font-weight: lighter;
+}
+
+#main {
+margin: 20px auto;
+max-width: 940px;
+}
+
+h1 {
+font-size: 200%;
+font-family: Helvetica;
+font-weight: bold;
+color:black;
+}
+
+#hero_image{
+    border: none;
     height: 100px;
     width: 100px;
     border: none;
 }
 
-#main {
-	margin: 20px auto;
-    max-width: 940px;
-}
-
-h1 {
-	font-size: 200%;
-    font-family: Helvetica;
-}
 
 p {
-    color: red;
+color: red;
 }
+
 
 #gameboard {
     background-color: aqua;
@@ -68,21 +95,23 @@ section:last-child {
     clear: both;
 }
 
+
 figure {
     float: left;
     margin: 0px;
 }
 
 img {
-  height: 320px;
-  width: 320px;
-  border: 1px solid black;
-  margin: 6px 10px;
+    height: 320px;
+    width: 320px;
+    border: 1px solid black;
+    margin: 6px 10px;
 }
 
 .logo {
-  height: 140px;
-  width: 140px;
+    height: 200px;
+    width: 200px;
+    border:none;
 }
 
 footer {
@@ -93,3 +122,4 @@ footer {
     font-size: 20px;
     margin: 15px 0px;
 }
+
