@@ -61,21 +61,21 @@ function playClickHandler() {
 }
 
 function imagesClickHandler(event) {
-  //put picture changing function here...
-  //place chart thing here ...
   var clicked = event.target;
 
   if (clicked.alt === media[userScore].answer[0]) {
     //if user chooses right answer
     if (clicked.getAttribute('src')) {
-      clicked.style.outline = '2px solid green';
+      clicked.style.outline = '5px solid #0f0';
       userScore++;
       audio.pause();
       button.style.display = '';
+      button.innerHTML = 'Play round ' + (userScore + 1) + '!';
+      // button.style.width = '80%';
       button.addEventListener('click', nextClickHandler);
     }//if user chooses wrong answer
   } else if (clicked.getAttribute('src')) {
-    clicked.style.outline = '2px solid red';
+    clicked.style.outline = '5px solid #f00';
   }
 }
 
@@ -117,9 +117,6 @@ function displayQuiz() {
   albums[rand2].src = media[userScore].choice2;
   albums[rand3].src = media[userScore].choice3;
   albums[rand4].src = media[userScore].choice4;
-
-
-
 }
 
 //start of Local Storage stuff
@@ -154,31 +151,8 @@ function setAnswerOrder() {
 button.addEventListener('click', playClickHandler);
 section.addEventListener('click', imagesClickHandler);
 setAnswerOrder();
-// nextButton.style.display = 'none';
-// nextButton.addEventListener('click', nextClickHandler);
 displayQuiz();
 saveData();
-
-
-// random logic
-// var randomIndex1 = generateRandomNumber();
-//   var randomIndex2 = generateRandomNumber();
-//   var randomIndex3 = generateRandomNumber();
-//   var randomIndex4 = generateRandomNumber();
-
-//  while (randomIndex1 === indexOne || randomIndex1 === randomIndex2 || randomIndex1 === randomIndex3) {
-//     randomIndex1 = generateRandomNumber();
-//   }
-//   while (randomIndex2 === indexTwo || randomIndex2 === randomIndex1 || randomIndex2 === randomIndex3) {
-//     randomIndex2 = generateRandomNumber();
-//   }
-//   while (randomIndex3 === indexThree || randomIndex3 === randomIndex2 || randomIndex3 === randomIndex1) {
-//     randomIndex3 = generateRandomNumber();
-//   }
-//   while (randomIndex4 === indexFour || randomIndex4) {
-
-//   }
-
 
 
 
