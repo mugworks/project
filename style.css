@@ -1,11 +1,12 @@
 
-header #main #gameboard{
+body {
     max-width: 940px;
-}
-
-header {
     margin: 0px auto;
 }
+
+/*header {
+    margin: 0px auto;
+}*/
 
 nav {
     display: inline-block;
