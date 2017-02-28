@@ -6,7 +6,6 @@ body {
 }
 
 nav {
-    /*display: inline-block;*/
     max-width: 780px;
     float: right;
     margin-top: 70px;
