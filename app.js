@@ -80,12 +80,7 @@ function imagesClickHandler(event) {
 }
 
 function nextClickHandler() {
-  // audio.src = media[userScore].song;
-  // album1.src = media[userScore].choice1[0];
-  // album2.src = media[userScore].choice2;
-  // album3.src = media[1].choice3;
-  // album4.src = media[1].choice4;
-
+  //THIS IS WHERE WE WILL TAKE USER TO RESULTS PAGE
   //WRITE CHECK TO SEE IF USERSCORE IS BIGGER THAN LENGTH OF MEDIA OBJECTS. IF SO, LINK TO THE RESULTS PAGE
 
   for (var i = 0; i < images.length; i++) {
@@ -102,11 +97,6 @@ function generateRandomNumber(max){
 
 function displayQuiz() {
   audio.src = media[userScore].song;
-  // album1.src = media[userScore].choice1;
-  album1.setAttribute('alt', media[0].answer[0]);
-  // album2.src = media[userScore].choice2;
-  // album3.src = media[userScore].choice3;
-  // album4.src = media[userScore].choice4;
 
   var rand1 = generateRandomNumber(albums.length);
   var rand2 = generateRandomNumber(albums.length);
