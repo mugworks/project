@@ -136,11 +136,10 @@ function saveData() {
   localStorage.setItem('localData', JSON.stringify(userScore) );
 }
 
-function setAnswerOrder(){ 
+function setAnswerOrder() {
   //Removes header image from array :D
-  for (var i = 1; i < images.length; i++) {
+  for (var i = 2; i < images.length; i++) {
     albums.push(images[i]);
-   
   }
 }
 
