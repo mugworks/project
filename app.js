@@ -30,9 +30,9 @@ var media = [
   {
     song: 'songs/01 Icky Thump (mp3cut.net).mp3',
     choice1: 'images/ickythump.jpeg',
-    // choice2: 'http://placehold.it/320x320',
-    // choice3: 'http://placehold.it/320x320',
-    // choice4: 'http://placehold.it/320x320',
+    choice2: 'http://placehold.it/320x320',
+    choice3: 'http://placehold.it/320x320',
+    choice4: 'http://placehold.it/320x320',
     answer: ['images/ickythump.jpeg', 'Icky Thump', 'The White Stripes']
   },
   {
@@ -65,9 +65,7 @@ function imagesClickHandler(event) {
   //place chart thing here ...
   var clicked = event.target;
 
-  console.log('check to see if answer is right: ', clicked.alt === media[0].answer[0], clicked);
-
-  if (clicked.alt === media[0].answer[0]) {
+  if (clicked.alt === media[userScore].answer[0]) {
     //if user chooses right answer
     if (clicked.getAttribute('src')) {
       clicked.style.outline = '2px solid green';
@@ -125,6 +123,7 @@ function displayQuiz() {
   }
 
   albums[rand1].src = media[userScore].choice1;
+  albums[rand1].setAttribute('alt', media[userScore].answer[0]);
   albums[rand2].src = media[userScore].choice2;
   albums[rand3].src = media[userScore].choice3;
   albums[rand4].src = media[userScore].choice4;
