@@ -3,6 +3,7 @@ var button = document.querySelector('button');
 var audio = document.querySelector('audio');
 var section = document.querySelector('section');
 var nextButton = document.querySelectorAll('button')[1];
+var images = document.querySelectorAll('img');
 var counter = 0;
 var album1 = document.getElementById('album1');
 var album2 = document.getElementById('album2');
@@ -19,7 +20,7 @@ var media = [
   {
     song: 'songs/Cranes in the Sky.mp3',    //song src
     choice1: ['images/solange.jpg', 'A Seat at the Table', 'Solange'],
-    //filepath, album, artist
+                            //filepath, album, artist
     choice2: 'images/lemonade.jpg',
     choice3: 'images/rihanna.jpg',
     choice4: 'images/laurynhill.jpg',
@@ -27,20 +28,20 @@ var media = [
   },
   {
     song: 'songs/01 Icky Thump (mp3cut.net).mp3',
-    // choice1: , //album  art
-    // choice2: ,
-    // choice3: ,
-    // choice4: ,
-    // answer:    //src of correct answer
-  }//,
-  // {
-  //   song: ,    //song src
-  //   choice1: , //album  art
-  //   choice2: ,
-  //   choice3: ,
-  //   choice4: ,
-  //   answer:    //src of correct answer
-  // },
+    choice1: ['images/ickythump.jpeg', 'Icky Thump', 'The White Stripes'],
+    choice2: 'http://placehold.it/320x320',
+    choice3: 'http://placehold.it/350x150',
+    choice4: 'http://placehold.it/350x150',
+    answer: 'images/ickythump.jpeg'
+  },
+  {
+    song: 'songs/jackWhite.mp3',
+    choice1: ['images/lemonade.jpg', 'Lemonade', 'Beyonce'],
+    choice2: 'images/rihanna.jpg',
+    choice3: 'images/laurynhill.jpg',
+    choice4: 'images/solange.jpg',
+    answer: 'images/lemonade.jpg'
+  },
   // {
   //   song: ,    //song src
   //   choice1: , //album  art
@@ -63,18 +64,30 @@ function imagesClickHandler(event) {
   var clicked = event.target;
 
   if (clicked.alt === media[0].answer) {
-    userScore++;
+    //if user chooses right answer
     if (clicked.getAttribute('src')) {
       clicked.style.outline = '2px solid green';
       nextButton.style.display = '';
-    }
+      userScore++;
+      audio.pause();
+    }//if user chooses wrong answer
   } else if (clicked.getAttribute('src')) {
     clicked.style.outline = '2px solid red';
   }
 }
 
 function nextClickHandler() {
-  console.log('taken to next page');
+  // audio.src = media[userScore].song;
+  // album1.src = media[userScore].choice1[0];
+  // album2.src = media[userScore].choice2;
+  // album3.src = media[1].choice3;
+  // album4.src = media[1].choice4;
+
+  for (var i = 0; i < images.length; i++) {
+    images[i].style.outline = 'none';
+  }
+
+  displayQuiz();
 }
 
 function generateRandomNumber(){
@@ -82,11 +95,18 @@ function generateRandomNumber(){
 }
 
 function displayQuiz() {
-  album1.src = media[0].choice1[0];
+  // album3.src = media[0].choice1[0];
+  // album3.setAttribute('alt', media[0].choice1[0]);
+  // album2.src = media[0].choice2;
+  // album1.src = media[0].choice3;
+  // album4.src = media[0].choice4;
+
+  audio.src = media[userScore].song;
+  album1.src = media[userScore].choice1[0];
   album1.setAttribute('alt', media[0].choice1[0]);
-  album2.src = media[0].choice2;
-  album3.src = media[0].choice3;
-  album4.src = media[0].choice4;
+  album2.src = media[userScore].choice2;
+  album3.src = media[userScore].choice3;
+  album4.src = media[userScore].choice4;
 }
 
 //start of Local Storage stuff
@@ -104,7 +124,6 @@ function saveData() {
 }
 
 button.addEventListener('click', playClickHandler);
-audio.src = media[0].song;
 section.addEventListener('click', imagesClickHandler);
 nextButton.style.display = 'none';
 nextButton.addEventListener('click', nextClickHandler);
