@@ -5,6 +5,11 @@ body {
     color: black;
 }
 
+header{
+    max-width: 960px;
+    background-color: lightgrey;
+}
+
 nav {
     max-width: 780px;
     float: right;
@@ -55,6 +60,7 @@ font-size: 200%;
 font-family: Helvetica;
 font-weight: bold;
 color:black;
+text-align: center;
 }
 
 #hero_image{
@@ -68,7 +74,9 @@ color:black;
 
 
 p {
+font-family: Courier New, Courier, monospace;
 color: black;
+margin-top: 150px;
 }
 
 form{
@@ -78,6 +86,7 @@ form{
 fieldset{
     height: 75px;
     text-align: center;
+    border-color: red;
 }
 input{
     font-size:18px;
@@ -90,10 +99,13 @@ input[name="email"]{
 }
 
 input[name="submit"]{
-    height: 150px;
-    width: 150px;
-    color:purple;
+    font-size: 60px;
+    color: red;
     display: inline-block;
+}
+
+inputinput[name="submit"]:hover{
+background:blue;
 }
 
 
@@ -111,8 +123,8 @@ button {
     height: 50px;
     font-family: Helvetica;
     font-size: 30px;
-    color: white;
-    background-color: #346B74;
+    color: slategray;
+    background-color: lightgrey;
     border-radius: 15px;
     margin-bottom: 30px;
     margin-left: 370px;
