@@ -1,8 +1,8 @@
 'use strict';
-          //Sets storage for username and email
+
 var form = document.querySelector('form');
 
-function submitHandler(){
+function submitHandler(){ //Sets storage for username and email
   var nameDomElement = document.getElementById('username');
   var emailDomElement = document.getElementById('email');
 
@@ -15,11 +15,14 @@ function submitHandler(){
   localStorage.setItem('emailString', emailData);
 }
 
-            //Set storage data for score
-var getScoreString = localStorage.getItem('score');
-var scoreData = JSON.parse(getScoreString);
-
-
 if (form) {
   form.addEventListener('submit', submitHandler);
+}
+function loadHandler(){ //retrieves name, email, and score data
+  var loadName = localStorage.getItem('nameString');
+  console.log(loadName);
+  var loadEmail = localStorage.getItem('emailString');
+  console.log(loadEmail);
+  var loadScore = localStorage.getItem('score');
+  console.log(loadScore);
 }
