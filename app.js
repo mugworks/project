@@ -61,6 +61,7 @@ function imagesClickHandler(event) {
     //if user chooses right answer
     clicked.style.outline = '5px solid #0f0';
     userScore++;
+    storeScore();
     audio.pause();
     button.style.display = '';
     if (userScore === media.length) {
@@ -76,8 +77,6 @@ function imagesClickHandler(event) {
 }
 
 function nextClickHandler() {
-  //THIS IS WHERE WE WILL TAKE USER TO RESULTS PAGE
-  //WRITE CHECK TO SEE IF USERSCORE IS BIGGER THAN LENGTH OF MEDIA OBJECTS. IF SO, LINK TO THE RESULTS PAGE
 
   for (var i = 0; i < albums.length; i++) {
     albums[i].style.outline = 'none';
@@ -116,7 +115,6 @@ function displayQuiz() {
   albums[rand4].src = media[userScore].choice4;
 }
 
-
 function grabQuizImages() {
   //Removes header image from array :D
   for (var i = 4; i < images.length; i++) {
@@ -124,13 +122,10 @@ function grabQuizImages() {
   }
 }
 
-
-
-
-
-
-
-
+function storeScore(){
+  JSON.stringify(userScore);
+  localStorage.setItem('score', userScore);
+}
 
 button.addEventListener('click', playClickHandler);
 section.addEventListener('click', imagesClickHandler);
