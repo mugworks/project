@@ -3,10 +3,6 @@ var button = document.querySelector('button');
 var audio = document.querySelector('audio');
 var section = document.querySelector('section');
 var images = document.querySelectorAll('img');
-var album1 = document.getElementById('album1');
-var album2 = document.getElementById('album2');
-var album3 = document.getElementById('album3');
-var album4 = document.getElementById('album4');
 var albums = [];
 var counter = 0;
 var userScore = 0;
@@ -131,11 +127,3 @@ button.addEventListener('click', playClickHandler);
 section.addEventListener('click', imagesClickHandler);
 grabQuizImages();
 displayQuiz();
-saveData();
-
-
-
-
-
-
-
