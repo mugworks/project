@@ -119,19 +119,6 @@ function displayQuiz() {
   albums[rand4].src = media[userScore].choice4;
 }
 
-//start of Local Storage stuff
-function init() {
-  var grabData = localStorage.getItem('localData');
-  newPlayer = JSON.parse(grabData);
-
-  if(grabData) {
-
-  }
-}
-
-function saveData() {
-  localStorage.setItem('localData', JSON.stringify(userScore) );
-}
 
 function setAnswerOrder() {
   //Removes header image from array :D
