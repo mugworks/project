@@ -2,8 +2,8 @@
 var button = document.querySelector('button');
 var audio = document.querySelector('audio');
 var section = document.querySelector('section');
-var images = document.querySelectorAll('img');
-var albums = [];
+var images = document.querySelectorAll('section figure img');
+var figures = document.querySelectorAll('section figure');
 var counter = 0;
 var userScore = 0;
 
@@ -75,9 +75,9 @@ function imagesClickHandler(event) {
 
 function nextClickHandler() {
 
-  for (var i = 0; i < albums.length; i++) {
-    albums[i].style.outline = 'none';
-    albums[i].removeAttribute('alt');
+  for (var i = 0; i < images.length; i++) {
+    images[i].style.outline = 'none';
+    images[i].removeAttribute('alt');
   }
 
   displayQuiz();
@@ -91,32 +91,25 @@ function generateRandomNumber(max){
 function displayQuiz() {
   audio.src = media[userScore].song;
 
-  var rand1 = generateRandomNumber(albums.length);
-  var rand2 = generateRandomNumber(albums.length);
+  var rand1 = generateRandomNumber(images.length);
+  var rand2 = generateRandomNumber(images.length);
   while(rand2 === rand1) {
-    rand2 = generateRandomNumber(albums.length);
+    rand2 = generateRandomNumber(images.length);
   }
-  var rand3 = generateRandomNumber(albums.length);
+  var rand3 = generateRandomNumber(images.length);
   while(rand3 === rand2 || rand3 === rand1) {
-    rand3 = generateRandomNumber(albums.length);
+    rand3 = generateRandomNumber(images.length);
   }
-  var rand4 = generateRandomNumber(albums.length);
+  var rand4 = generateRandomNumber(images.length);
   while(rand4 === rand3 || rand4 === rand2 || rand4 === rand1) {
-    rand4 = generateRandomNumber(albums.length);
+    rand4 = generateRandomNumber(images.length);
   }
 
-  albums[rand1].src = media[userScore].choice1[0];
-  albums[rand1].setAttribute('alt', media[userScore].answer[0]);
-  albums[rand2].src = media[userScore].choice2[0];
-  albums[rand3].src = media[userScore].choice3[0];
-  albums[rand4].src = media[userScore].choice4[0];
-}
-
-function grabQuizImages() {
-  //Removes header image from array :D
-  for (var i = 4; i < images.length - 1; i++) {
-    albums.push(images[i]);
-  }
+  images[rand1].src = media[userScore].choice1[0];
+  images[rand1].setAttribute('alt', media[userScore].answer[0]);
+  images[rand2].src = media[userScore].choice2[0];
+  images[rand3].src = media[userScore].choice3[0];
+  images[rand4].src = media[userScore].choice4[0];
 }
 
 function storeScore(){
@@ -126,5 +119,5 @@ function storeScore(){
 
 button.addEventListener('click', playClickHandler);
 section.addEventListener('click', imagesClickHandler);
-grabQuizImages();
+//grabQuizImages();
 displayQuiz();
