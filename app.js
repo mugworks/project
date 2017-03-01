@@ -2,8 +2,8 @@
 var button = document.querySelector('button');
 var audio = document.querySelector('audio');
 var section = document.querySelector('section');
-var images = document.querySelectorAll('img');
-var albums = [];
+var images = document.querySelectorAll('section figure img');
+var figCaptions = document.querySelectorAll('section figcaption');
 var counter = 0;
 var userScore = 0;
 
@@ -104,18 +104,17 @@ function displayQuiz() {
     rand4 = generateRandomNumber(albums.length);
   }
 
-  albums[rand1].src = media[userScore].choice1;
-  albums[rand1].setAttribute('alt', media[userScore].answer[0]);
-  albums[rand2].src = media[userScore].choice2;
-  albums[rand3].src = media[userScore].choice3;
-  albums[rand4].src = media[userScore].choice4;
-}
-
-function grabQuizImages() {
-  //Removes header image from array :D
-  for (var i = 4; i < images.length; i++) {
-    albums.push(images[i]);
-  }
+ //set image and hook for correct answer, along with album/artist info
+  images[rand1].src = media[userScore].choice1[0];
+  images[rand1].setAttribute('alt', media[userScore].answer[0]);
+  figCaptions[rand1].innerHTML = '<i>' + media[userScore].choice1[1] + '</i>' + '<br>' + media[userScore].choice1[2];
+  //set image and album artist info for incorrect answers
+  images[rand2].src = media[userScore].choice2[0];
+  figCaptions[rand2].innerHTML = '<i>' + media[userScore].choice2[1] + '</i>' + '<br>' + media[userScore].choice2[2];
+  images[rand3].src = media[userScore].choice3[0];
+  figCaptions[rand3].innerHTML = '<i>' + media[userScore].choice3[1] + '</i>' + '<br>' + media[userScore].choice3[2];
+  images[rand4].src = media[userScore].choice4[0];
+  figCaptions[rand4].innerHTML = '<i>' + media[userScore].choice4[1] + '</i>' + '<br>' + media[userScore].choice4[2];
 }
 
 function storeScore(){
@@ -125,16 +124,4 @@ function storeScore(){
 
 button.addEventListener('click', playClickHandler);
 section.addEventListener('click', imagesClickHandler);
-grabQuizImages();
 displayQuiz();
-
-
-
-
-
-
-
-
-
-
-
