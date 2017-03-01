@@ -2,30 +2,24 @@
 var button = document.querySelector('button');
 var audio = document.querySelector('audio');
 var section = document.querySelector('section');
-//var nextButton = document.querySelectorAll('button')[1]; start button becomes next button now
 var images = document.querySelectorAll('img');
-var albums = [];
-var counter = 0;
 var album1 = document.getElementById('album1');
 var album2 = document.getElementById('album2');
 var album3 = document.getElementById('album3');
 var album4 = document.getElementById('album4');
-var items = [];
-var indexOne = 0;
-var indexTwo = 1;
-var indexThree = 2;
-var indexFour = 3;
+var albums = [];
+var counter = 0;
 var userScore = 0;
 
 var media = [
-  {
-    song: 'songs/Cranes in the Sky.mp3',    //song src
+  {             //song src
+    song: 'songs/Cranes in the Sky.mp3',
     choice1: 'images/solange.jpg',
     choice2: 'images/lemonade.jpg',
     choice3: 'images/rihanna.jpg',
     choice4: 'images/laurynhill.jpg',
-                //filepath                album            artist
-    answer: ['images/solange.jpg', 'A Seat at the Table', 'Solange'] //src of correct answer
+                //answer                  album            artist
+    answer: ['images/solange.jpg', 'A Seat at the Table', 'Solange']
   },
   {
     song: 'songs/01 Icky Thump (mp3cut.net).mp3',
@@ -65,15 +59,17 @@ function imagesClickHandler(event) {
 
   if (clicked.alt === media[userScore].answer[0]) {
     //if user chooses right answer
-    if (clicked.getAttribute('src')) {
-      clicked.style.outline = '5px solid #0f0';
-      userScore++;
-      audio.pause();
-      button.style.display = '';
+    clicked.style.outline = '5px solid #0f0';
+    userScore++;
+    audio.pause();
+    button.style.display = '';
+    if (userScore === media.length) {
+      button.innerHTML = 'RESULTS!';
+      //otherwise have button display next round message
+    } else {
       button.innerHTML = 'Play round ' + (userScore + 1) + '!';
-      // button.style.width = '80%';
       button.addEventListener('click', nextClickHandler);
-    }//if user chooses wrong answer
+    }
   } else if (clicked.getAttribute('src')) {
     clicked.style.outline = '5px solid #f00';
   }
@@ -83,8 +79,9 @@ function nextClickHandler() {
   //THIS IS WHERE WE WILL TAKE USER TO RESULTS PAGE
   //WRITE CHECK TO SEE IF USERSCORE IS BIGGER THAN LENGTH OF MEDIA OBJECTS. IF SO, LINK TO THE RESULTS PAGE
 
-  for (var i = 0; i < images.length; i++) {
-    images[i].style.outline = 'none';
+  for (var i = 0; i < albums.length; i++) {
+    albums[i].style.outline = 'none';
+    albums[i].removeAttribute('alt');
   }
 
   displayQuiz();
@@ -133,7 +130,7 @@ function saveData() {
   localStorage.setItem('localData', JSON.stringify(userScore) );
 }
 
-function setAnswerOrder() {
+function grabQuizImages() {
   //Removes header image from array :D
   for (var i = 2; i < images.length; i++) {
     albums.push(images[i]);
@@ -150,7 +147,7 @@ function setAnswerOrder() {
 
 button.addEventListener('click', playClickHandler);
 section.addEventListener('click', imagesClickHandler);
-setAnswerOrder();
+grabQuizImages();
 displayQuiz();
 saveData();
 
