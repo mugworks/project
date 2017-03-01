@@ -1,5 +1,5 @@
 'use strict';
-var button = document.querySelector('button');
+var button = document.getElementById('start-game');
 var audio = document.querySelector('audio');
 var section = document.querySelector('section');
 var images = document.querySelectorAll('section figure img');
@@ -71,6 +71,7 @@ function imagesClickHandler(event) {
     button.style.display = '';
     if (userScore === media.length) {
       button.innerHTML = 'RESULTS!';
+      button.href = 'results.html';
       //otherwise have button display next round message
     } else {
       button.innerHTML = 'Play round ' + (userScore + 1) + '!';
