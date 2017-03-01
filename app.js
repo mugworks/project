@@ -1,12 +1,12 @@
 'use strict';
-var button = document.querySelector('button');
+var button = document.getElementById('start-game');
 var audio = document.querySelector('audio');
 var section = document.querySelector('section');
 var images = document.querySelectorAll('section figure img');
 var figCaptions = document.querySelectorAll('section figcaption');
 var counter = 0;
 var userScore = 0;
-
+//array of quiz questions
 var media = [
   {             //song src
     song: 'songs/Cranes in the Sky.mp3',
@@ -16,7 +16,7 @@ var media = [
     choice3: ['images/rihanna.jpg', 'Unapologetic', 'Rihanna'],
     choice4: ['images/laurynhill.jpg', 'The Miseducation of Lauren Hill', 'Lauryn Hill'],
                 //answer
-    answer: ['images/solange.jpg', 'A Seat at the Table', 'Solange']
+    answer: 'images/solange.jpg'
   },
   {
     song: 'songs/01 Icky Thump (mp3cut.net).mp3',
@@ -24,15 +24,15 @@ var media = [
     choice2: ['images/deathfromabove.jpg', 'You\'re a Woman, I\'m a Machine', 'Death From Above 1979'],
     choice3: ['images/blackkeysmagicpotion.jpg', 'Magic Potion', 'The White Stripes'],
     choice4: ['images/apologiestothequeenmary.jpg', 'Apologies To The Queen Mary', 'Wolf Parade'],
-    answer: ['images/ickythump.jpeg', 'Icky Thump', 'The White Stripes']
+    answer: 'images/ickythump.jpeg'
   },
   {
-    song: 'songs/jackWhite.mp3',
-    choice1: ['images/lemonade.jpg', 'Lemonade', 'Beyonce'],
-    choice2: ['images/rihanna.jpg', 'Unapologetic', 'Rihanna'],
-    choice3: ['images/laurynhill.jpg', 'The Miseducation of Lauren Hill', 'Lauryn Hill'],
-    choice4: ['images/solange.jpg', 'A Seat at the Table', 'Solange'],
-    answer: ['images/lemonade.jpg', 'Lemonade', 'Beyonce']
+    song: 'songs/allmanbrothers.mp3',
+    choice1: ['images/rockofages.jpg', 'Rock of Ages', 'The Band'],
+    choice2: ['images/brothersandsisters.jpg', 'Brothers and Sisters', 'The Allman Brothers Band'],
+    choice3: ['images/creedence.jpg', 'Willy and the Poor Boys', 'Creedence Clearwater Revival'],
+    choice4: ['images/iloveyouhoneybear.jpg', 'I Love You Honeybear', 'Father John Misty'],
+    answer: 'images/rockofages.jpg'
   },
   {
     song: 'songs/kurtvile.mp3',
@@ -40,7 +40,15 @@ var media = [
     choice2: ['images/mangylove.jpg', 'Mangy Love', 'Cass McCombs'],
     choice3: ['images/singingsaw.jpg', 'Singing Saw', 'Kevin Morby'],
     choice4: ['images/iloveyouhoneybear.jpg', 'I Love You Honeybear', 'Father John Misty'],
-    answer: ['images/believeimgoingdown.jpg', 'B\'lieve I\'m Goin Down...', 'Kurt Vile']
+    answer: 'images/believeimgoingdown.jpg'
+  },
+  {
+    song: 'songs/jackWhite.mp3',
+    choice1: ['images/lemonade.jpg', 'Lemonade', 'Beyonce'],
+    choice2: ['images/rihanna.jpg', 'Unapologetic', 'Rihanna'],
+    choice3: ['images/laurynhill.jpg', 'The Miseducation of Lauren Hill', 'Lauryn Hill'],
+    choice4: ['images/solange.jpg', 'A Seat at the Table', 'Solange'],
+    answer: 'images/lemonade.jpg'
   }
 ];
 
@@ -54,15 +62,16 @@ function playClickHandler() {
 function imagesClickHandler(event) {
   var clicked = event.target;
 
-  if (clicked.alt === media[userScore].answer[0]) {
+  if (clicked.alt === media[userScore].answer) {
     //if user chooses right answer
     clicked.style.outline = '5px solid #0f0';
+    audio.pause();
     userScore++;
     storeScore();
-    audio.pause();
     button.style.display = '';
     if (userScore === media.length) {
       button.innerHTML = 'RESULTS!';
+      button.href = 'results.html';
       //otherwise have button display next round message
     } else {
       button.innerHTML = 'Play round ' + (userScore + 1) + '!';
@@ -107,7 +116,7 @@ function displayQuiz() {
 
   //set image and hook for correct answer, along with album/artist info
   images[rand1].src = media[userScore].choice1[0];
-  images[rand1].setAttribute('alt', media[userScore].answer[0]);
+  images[rand1].setAttribute('alt', media[userScore].answer);
   figCaptions[rand1].innerHTML = '<i>' + media[userScore].choice1[1] + '</i>' + '<br>' + media[userScore].choice1[2];
   //set image and album artist info for incorrect answers
   images[rand2].src = media[userScore].choice2[0];
