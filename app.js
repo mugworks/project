@@ -3,10 +3,6 @@ var button = document.querySelector('button');
 var audio = document.querySelector('audio');
 var section = document.querySelector('section');
 var images = document.querySelectorAll('img');
-var album1 = document.getElementById('album1');
-var album2 = document.getElementById('album2');
-var album3 = document.getElementById('album3');
-var album4 = document.getElementById('album4');
 var albums = [];
 var counter = 0;
 var userScore = 0;
@@ -61,6 +57,7 @@ function imagesClickHandler(event) {
     //if user chooses right answer
     clicked.style.outline = '5px solid #0f0';
     userScore++;
+    storeScore();
     audio.pause();
     button.style.display = '';
     if (userScore === media.length) {
@@ -76,8 +73,6 @@ function imagesClickHandler(event) {
 }
 
 function nextClickHandler() {
-  //THIS IS WHERE WE WILL TAKE USER TO RESULTS PAGE
-  //WRITE CHECK TO SEE IF USERSCORE IS BIGGER THAN LENGTH OF MEDIA OBJECTS. IF SO, LINK TO THE RESULTS PAGE
 
   for (var i = 0; i < albums.length; i++) {
     albums[i].style.outline = 'none';
@@ -116,7 +111,6 @@ function displayQuiz() {
   albums[rand4].src = media[userScore].choice4;
 }
 
-
 function grabQuizImages() {
   //Removes header image from array :D
   for (var i = 4; i < images.length; i++) {
@@ -124,23 +118,12 @@ function grabQuizImages() {
   }
 }
 
-
-
-
-
-
-
-
+function storeScore(){
+  JSON.stringify(userScore);
+  localStorage.setItem('score', userScore);
+}
 
 button.addEventListener('click', playClickHandler);
 section.addEventListener('click', imagesClickHandler);
 grabQuizImages();
 displayQuiz();
-saveData();
-
-
-
-
-
-
-
