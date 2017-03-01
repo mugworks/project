@@ -1,8 +1,8 @@
 'use strict';
 
-var form = document.querySelector('form');
+var playGame = document.getElementById('play_gamelink');
 
-function submitHandler(){ //Sets storage for username and email
+function playHandler(){ //Sets storage for username and email
   var nameDomElement = document.getElementById('username');
   var emailDomElement = document.getElementById('email');
 
@@ -15,8 +15,8 @@ function submitHandler(){ //Sets storage for username and email
   localStorage.setItem('emailString', emailData);
 }
 
-if (form) {
-  form.addEventListener('submit', submitHandler);
+if (playGame) {
+  playGame.addEventListener('click', playHandler);
 }
 function loadHandler(){ //retrieves name, email, and score data
   var loadName = localStorage.getItem('nameString');
