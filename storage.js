@@ -20,5 +20,6 @@ var getScoreString = localStorage.getItem('score');
 var scoreData = JSON.parse(getScoreString);
 
 
-
-form.addEventListener('submit', submitHandler);
+if (form) {
+  form.addEventListener('submit', submitHandler);
+}
