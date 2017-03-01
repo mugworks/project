@@ -20,17 +20,41 @@
           </figure></li>
          <li><figure>
          <a href="results.html"><img class="nav-button"< src="images/Nav_icon.png"/></a>
-          <figcaption class=nav_text>Scores</figcaption>
+          <figcaption class=nav_text>Status</figcaption>
           </figure></li>
       </ul>
     </nav>
   </header>
 <div id="main">
-  <h1>RESULTS</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid nobis dolores perferendis, ipsa nostrum obcaecati asperiores corrupti cumque placeat voluptates illo id eligendi cum molestiae tempora culpa possimus voluptas laudantium.</p>
+  <h1>How Did You Do?</h1>
+  <table>
+    <thead>
+      <tr>
+        <th id ="table_title"colspan="4">Music Junkie Barometer</th>
+      </tr>
+    </thead>
+    <tbody>
+<!--this row will be colored in based on results-->
+      <tr id="fill_row"> 
+        <td class="end_cell" class="fill_cell"></td>
+        <td class="fill_cell"></td>
+        <td class="fill_cell"></td>
+        <td class="fill_cell"></td>
+        <td class="end_cell" class="fill_cell"></td>
+      </tr>
+      <!--this row will give user their music junkie status-->
+      <tr id="status_row">
+        <td class="status_text"></td>
+        <td class="status_text"></td>
+        <td class="status_text"></td>
+        <td class="status_text"></td>
+        <td class="status_text"></td>
+      </tr>
+    </tbody>
+  </table>
+    <p class="results_text">Thanks for playing!</p>
 </div>
 
-<script type = "text/javascript" src = "app.js"></script>
 <script type = "text/javascript" src = "storage.js"></script>
 <footer>
     <img id="footer_logo" src="images/turn_table_animation.gif"/><br>
