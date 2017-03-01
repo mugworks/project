@@ -213,7 +213,7 @@ footer {
     margin: 15px 0px;
 }
 
-#play_gamelink{
+.button {
         width: 200px;
     height: 50px;
     font-family: Helvetica;
@@ -223,4 +223,10 @@ footer {
     border-style: solid;
     border-color:cornflowerblue;
     border-radius: 10px;
+}
+.button:hover {
+    color:darkslategrey;
+}
+#bodytag{
+    
 }

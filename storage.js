@@ -2,7 +2,7 @@
 
 var playGame = document.getElementById('play_gamelink');
 
-function playHandler(){ //Sets storage for username and email
+function playHandler() { //Sets storage for username and email
   var nameDomElement = document.getElementById('username');
   var emailDomElement = document.getElementById('email');
 
@@ -18,7 +18,7 @@ function playHandler(){ //Sets storage for username and email
 if (playGame) {
   playGame.addEventListener('click', playHandler);
 }
-function loadHandler(){ //retrieves name, email, and score data
+function loadHandler() { //retrieves name, email, and score data
   var loadName = localStorage.getItem('nameString');
   console.log(loadName);
   var loadEmail = localStorage.getItem('emailString');
