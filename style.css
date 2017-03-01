@@ -150,19 +150,6 @@ background:blue;
     margin: 0px auto;
 }
 
-
-button {
-    width: 200px;
-    height: 50px;
-    font-family: Helvetica;
-    font-size: 30px;
-    color: slategray;
-    background-color: lightgrey;
-    border-radius: 15px;
-    margin-bottom: 30px;
-    margin-left: 370px;
-}
-
 section {
     max-width: 690px;
     margin: 0px auto;
@@ -214,7 +201,7 @@ footer {
 }
 
 .button {
-        width: 200px;
+    width: 200px;
     height: 50px;
     font-family: Helvetica;
     font-size: 30px;
@@ -224,9 +211,17 @@ footer {
     border-color:cornflowerblue;
     border-radius: 10px;
 }
+
 .button:hover {
     color:darkslategrey;
 }
-#bodytag{
-    
+#bodytag{   
+     
+}
+
+#start-game {
+    height: 100%;
+    display: block;
+    text-align: center;
+    margin: .75em auto; 
 }
