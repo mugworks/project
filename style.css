@@ -212,6 +212,13 @@ footer {
     border-radius: 10px;
 }
 
+.button:hover {
+    color:darkslategrey;
+}
+#bodytag{   
+     
+}
+
 #start-game {
     height: 100%;
     display: block;
