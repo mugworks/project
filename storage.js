@@ -8,7 +8,7 @@ function playHandler(event) { //Sets storage for username and email
   var nameDomElement = document.getElementById('username');
   var emailDomElement = document.getElementById('email');
   var nameData;
-  var emailData
+  var emailData;
 
   //form name validation
   if (!nameDomElement.value) {
