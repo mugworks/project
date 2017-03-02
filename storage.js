@@ -1,6 +1,8 @@
 'use strict';
-
-var playGame = document.getElementById('play_gamelink');
+var loadName;
+var loadEmail;
+var loadScore;
+var playGame = document.getElementById('play_game');
 
 function playHandler() { //Sets storage for username and email
   var nameDomElement = document.getElementById('username');
@@ -19,10 +21,10 @@ if (playGame) {
   playGame.addEventListener('click', playHandler);
 }
 function loadHandler() { //retrieves name, email, and score data
-  var loadName = localStorage.getItem('nameString');
+  loadName = localStorage.getItem('nameString');
   console.log(loadName);
-  var loadEmail = localStorage.getItem('emailString');
+  loadEmail = localStorage.getItem('emailString');
   console.log(loadEmail);
-  var loadScore = localStorage.getItem('score');
+  loadScore = localStorage.getItem('score');
   console.log(loadScore);
 }
