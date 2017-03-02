@@ -2,7 +2,7 @@
 
 var comments = ['Only one right. Grandma level.', 'Two right. Poser level.', 'Mid-level knowledge.', 'Your audiophile skills are strong', 'Wow! Perfect Score! You are a music junkie!'];
 
-var score = 2;
+var score = 3;
 
 if(score === 0) {
   var zeroComment = document.getElementById('zero_score_text');
@@ -17,7 +17,7 @@ if(score === 0) {
 
   if (score === 5) {
     var paraText = document.getElementById('congrats');
-    paraText.textContent = ('Congratulations! You get a free record voucher!');
+    paraText.textContent = ('Congratulations! You get a free record voucher! Print this page and bring it to the store.');
   } else {
     var paraOther = document.getElementById('results_text');
     paraOther.textContent = ('Thanks for playing!');
