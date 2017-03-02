@@ -77,21 +77,29 @@ p {
 }
 
 #voucher_rules {
-  margin-top: 150px;
+  margin-top: 120px;
+  font-size: 20px;
 }
 
 table {
   margin: 0px auto;
   width: 940px;
-  height: 100px;
+  height: 150px;
   border-collapse: collapse;
   table-layout: fixed;
- 
 }
 
 #table_title {
   text-align: center;
-  /*font-family: Helvetica;*/
+  font-family: Helvetica;
+  font-size: 20px;
+  padding: 20px;
+}
+
+tr {
+  height: 50px;
+  text-align: center;
+  font-size: 18px;
 }
 
 .end_cell {
@@ -104,6 +112,11 @@ table {
   border-radius: 5px;
 }
 
+.response {
+  /*color: green;*/
+  font-size: 30px;
+  text-align: center;
+}
 
 .status-text {
   /*font-family: Courier New, Courier, monospace;*/
@@ -120,8 +133,9 @@ form {
 fieldset {
   height: 75px;
   text-align: center;
-  border-color: red;
+  border-color: #336AB0;
 }
+
 input {
   font-size:18px;
   margin-top: 10px;
@@ -186,7 +200,7 @@ img {
   border:none;
 }
 
-#footer_logo{
+#footer_logo {
   height: 75px;
   width: 75px;   
 }
@@ -204,22 +218,19 @@ footer {
 }
 
 .button {
-    width: 200px;
-    height: 50px;
-    /*font-family: Helvetica;*/
-    font-size: 30px;
-    color: slategray;
-    background-color: lightgrey;
-    border-style: solid;
-    border-color:cornflowerblue;
-    border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  font-family: Helvetica;
+  font-size: 30px;
+  color: slategray;
+  background-color: lightgrey;
+  border-style: solid;
+  border-color:cornflowerblue;
+  border-radius: 10px;
 }
 
 .button:hover {
-    color:darkslategrey;
-}
-#bodytag{   
-     
+  color:darkslategrey;
 }
 
 #start-game {
@@ -229,12 +240,12 @@ footer {
     margin: .75em auto; 
 }
 
-*{
-/*font-family: 'Quicksand', sans-serif;*/
-/*font-family: 'Inconsolata', monospace;*/
-/*font-family: 'Cormorant Garamond', serif;*/
-/*font-family: 'Gentium Basic', serif;*/
-/*font-family: 'Libre Franklin', sans-serif;*/
-/*font-family: 'Concert One', cursive;*/
-font-family: 'Work Sans', sans-serif;
+
+section figure img {
+  cursor: pointer;
+}
+
+#footer2 {
+  background: linear-gradient(white 40%, grey); /* Standard syntax */
+  max-width: 960px;
 }
