@@ -102,16 +102,18 @@ function imagesClickHandler(event) {
     button.style.cursor = 'pointer';
     clearInterval(timer);
     audio.pause();
+  }
 
-    //fade incorrect answers
-    for (var j = 0; j < images.length; j++) {
+  //fade incorrect answers
+  for (var j = 0; j < images.length; j++) {
+    if (images[j].alt !== correct) {
+      images[j].style.opacity = '0.2';
+      images[j].style.outline = '';
+    } else {
       images[j].style.outline = '5px solid #0f0';
-      if (images[j].alt !== correct) {
-        images[j].style.opacity = '0.2';
-        images[j].style.outline = '';
-      }
     }
   }
+
   //remove hand cursor for image hover after user guess
   for (var i = 0; i < images.length; i++) {
     images[i].className = '';
