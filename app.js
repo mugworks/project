@@ -54,7 +54,7 @@ function playClickHandler(event) {
   var number = 19;
   //countdown timer
   timer = setInterval(function() {
-    button.style.color = '#f00';
+    button.style.color = 'rgb(230, 7, 7)';
     button.textContent = number;
     number--;
 
@@ -96,7 +96,6 @@ function imagesClickHandler(event) {
     storeScore();
     //if user chooses wrong answer
   } else if (clicked.getAttribute('src')) {
-    clicked.style.outline = '5px solid #f00';
     counter++;
 
     button.style.color = '';
@@ -106,6 +105,7 @@ function imagesClickHandler(event) {
 
     //fade incorrect answers
     for (var j = 0; j < images.length; j++) {
+      images[j].style.outline = '5px solid #0f0';
       if (images[j].alt !== correct) {
         images[j].style.opacity = '0.2';
         images[j].style.outline = '';
@@ -166,6 +166,13 @@ function displayQuiz() {
   figCaptions[rand3].innerHTML = '<i>' + media[counter].choice3[1] + '</i>' + '<br>' + media[counter].choice3[2];
   images[rand4].src = media[counter].choice4[0];
   figCaptions[rand4].innerHTML = '<i>' + media[counter].choice4[1] + '</i>' + '<br>' + media[counter].choice4[2];
+}
+
+function onGuess() {
+  button.style.color = '';
+  button.style.cursor = 'pointer';
+  clearInterval(timer);
+  audio.pause();
 }
 
 function displayNextOrResults() {
