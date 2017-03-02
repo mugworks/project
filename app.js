@@ -6,6 +6,7 @@ var images = document.querySelectorAll('section figure img');
 var figCaptions = document.querySelectorAll('section figcaption');
 var counter = 0;
 var userScore = 0;
+var timer;
 //array of quiz questions
 var media = [
   {             //song src
@@ -28,8 +29,8 @@ var media = [
   },
   {
     song: 'songs/allmanbrothers.mp3',
-    choice1: ['images/rockofages.jpg', 'Rock of Ages', 'The Band'],
-    choice2: ['images/brothersandsisters.jpg', 'Brothers and Sisters', 'The Allman Brothers Band'],
+    choice1: ['images/brothersandsisters.jpg', 'Brothers and Sisters', 'The Allman Brothers Band'],
+    choice2: ['images/rockofages.jpg', 'Rock of Ages', 'The Band'],
     choice3: ['images/creedence.jpg', 'Willy and the Poor Boys', 'Creedence Clearwater Revival'],
     choice4: ['images/iloveyouhoneybear.jpg', 'I Love You Honeybear', 'Father John Misty'],
     answer: 'images/rockofages.jpg'
@@ -53,10 +54,26 @@ var media = [
 ];
 
 
-function playClickHandler() {
+function playClickHandler(event) {
+  var number = 29;
+  //countdown timer
+  timer = setInterval(function() {
+    button.style.color = '#f00';
+    button.textContent = number;
+    number--;
+
+    if (number < 0) {
+      clearInterval(timer);
+    }
+  }, 1000);
+  //prevent page jumping unless it's last page
+  if (userScore !== media.length) {
+    event.preventDefault();
+  }
+
+  button.style.cursor = 'default';
   audio.play();
-  button.style.display = 'none';
-  counter += 1;
+  counter++;
 }
 
 function imagesClickHandler(event) {
@@ -65,16 +82,19 @@ function imagesClickHandler(event) {
   if (clicked.alt === media[userScore].answer) {
     //if user chooses right answer
     clicked.style.outline = '5px solid #0f0';
+    button.style.color = '';
+    button.style.cursor = 'pointer';
+    clearInterval(timer);
     audio.pause();
     userScore++;
     storeScore();
-    button.style.display = '';
     if (userScore === media.length) {
+      button.removeEventListener('click', nextClickHandler);
       button.innerHTML = 'RESULTS!';
       button.href = 'results.html';
       //otherwise have button display next round message
     } else {
-      button.innerHTML = 'Play round ' + (userScore + 1) + '!';
+      button.innerHTML = 'Play round ' + (userScore + 1);
       button.addEventListener('click', nextClickHandler);
     }
   } else if (clicked.getAttribute('src')) {
