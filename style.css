@@ -219,7 +219,10 @@ footer {
     color:darkslategrey;
 }
 #bodytag{   
-     
+  background: linear-gradient(white, grey); /* Standard syntax */
+  max-width: 960px;
+
+
 }
 
 #start-game {
