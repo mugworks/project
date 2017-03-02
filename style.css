@@ -108,15 +108,17 @@ tr {
   font-size: 18px;
 }
 
+
 .end_cell {
   border-radius: 5px;
   border: 2px solid black;
+  border-right: 0px
 }
 
 .fill_cell {
   border: 2px solid black;
-  border-radius: 5px;
 }
+
 
 .response {
   /*color: green;*/
