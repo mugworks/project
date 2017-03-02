@@ -66,6 +66,9 @@ function playClickHandler(event) {
     if (number < 0) {
       clearInterval(timer);
       audio.pause();
+      counter++;
+      button.style.color = '';
+      displayNextOrResults();
     }
   }, 1000);
   //prevent page jumping unless it's last page
@@ -80,8 +83,8 @@ function playClickHandler(event) {
 function imagesClickHandler(event) {
   var clicked = event.target;
 
+  //don't allow more than one click per round
   if (counter > round) {
-    button.removeEventListener('click', imagesClickHandler);
     return;
   }
 
@@ -108,17 +111,12 @@ function imagesClickHandler(event) {
 
   }
 
-  if (counter === media.length) {
-    button.removeEventListener('click', nextClickHandler);
-    button.innerHTML = 'RESULTS!';
-    button.href = 'results.html';
-    //otherwise have button display next round message
-  } else {
-    button.innerHTML = 'Play round ' + (counter + 1);
-    button.addEventListener('click', nextClickHandler);
+  for (var i = 0; i < images.length; i++) {
+    images[i].className = '';
   }
-}
 
+  displayNextOrResults();
+}
 
 function nextClickHandler() {
 
@@ -166,6 +164,18 @@ function displayQuiz() {
   figCaptions[rand4].innerHTML = '<i>' + media[counter].choice4[1] + '</i>' + '<br>' + media[counter].choice4[2];
 }
 
+function displayNextOrResults() {
+  if (counter === media.length) {
+    button.removeEventListener('click', nextClickHandler);
+    button.innerHTML = 'RESULTS!';
+    button.href = 'results.html';
+    //otherwise have button display next round message
+  } else {
+    button.innerHTML = 'Play round ' + (counter + 1);
+    button.addEventListener('click', nextClickHandler);
+  }
+}
+
 function storeScore(){
   JSON.stringify(userScore);
   localStorage.setItem('score', userScore);
@@ -174,3 +184,4 @@ function storeScore(){
 button.addEventListener('click', playClickHandler);
 section.addEventListener('click', imagesClickHandler);
 displayQuiz();
+storeScore();
