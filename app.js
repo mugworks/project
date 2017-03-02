@@ -125,6 +125,7 @@ function nextClickHandler() {
   for (var i = 0; i < images.length; i++) {
     images[i].style.outline = 'none';
     images[i].removeAttribute('alt');
+    images[i].style.opacity = '';
   }
 
   displayQuiz();
