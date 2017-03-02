@@ -10,7 +10,7 @@ if(loadScore == 0) {
 } else {
   for (var i = 1; i <= loadScore; i++) {
     var tableCell = document.getElementById('score' + [i]);
-    tableCell.setAttribute('id', 'filledIn');
+    tableCell.classList.add('filledIn');
   }
   var tableComment = document.getElementById('status' + [loadScore]);
   tableComment.textContent = comments[loadScore - 1];
