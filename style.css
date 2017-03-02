@@ -1,7 +1,7 @@
 body {
   max-width: 940px;
   margin: 0px auto;
-  font-family: Helvetica;
+  /*font-family: Helvetica;*/
   color: black;
 }
 
@@ -28,8 +28,8 @@ li {
 
 .nav_text {
   text-align: center;
-  font-family: Helvetica;
-  font-weight: lighter;
+  /*font-family: Helvetica;*/
+  /*font-weight: lighter;*/
   color: black;
 }
 
@@ -42,8 +42,8 @@ a {
 }
 
 .index_headline {
-  font-family: Helvetica;
-  font-weight: lighter;
+  /*font-family: Helvetica;*/
+  /*font-weight: lighter;*/
 }
 
 #main {
@@ -55,8 +55,8 @@ a {
 }
 
 h1 {
-  font-size: 200%;
-  font-family: Helvetica;
+  font-size: 180%;
+  /*font-family: Helvetica;*/
   font-weight: lighter;
   color:black;
   text-align: center;
@@ -72,7 +72,7 @@ h1 {
 
 
 p {
-  font-family: Courier New, Courier, monospace;
+  /*font-family: Courier New, Courier, monospace;*/
   color: black;
 }
 
@@ -91,7 +91,7 @@ table {
 
 #table_title {
   text-align: center;
-  font-family: Helvetica;
+  /*font-family: Helvetica;*/
 }
 
 .end_cell {
@@ -106,7 +106,7 @@ table {
 
 
 .status-text {
-  font-family: Courier New, Courier, monospace;
+  /*font-family: Courier New, Courier, monospace;*/
 }
 
 .results_text {
@@ -206,7 +206,7 @@ footer {
 .button {
     width: 200px;
     height: 50px;
-    font-family: Helvetica;
+    /*font-family: Helvetica;*/
     font-size: 30px;
     color: slategray;
     background-color: lightgrey;
@@ -227,4 +227,14 @@ footer {
     display: block;
     text-align: center;
     margin: .75em auto; 
+}
+
+*{
+/*font-family: 'Quicksand', sans-serif;*/
+/*font-family: 'Inconsolata', monospace;*/
+/*font-family: 'Cormorant Garamond', serif;*/
+/*font-family: 'Gentium Basic', serif;*/
+/*font-family: 'Libre Franklin', sans-serif;*/
+/*font-family: 'Concert One', cursive;*/
+font-family: 'Work Sans', sans-serif;
 }
