@@ -5,6 +5,7 @@ var section = document.querySelector('section');
 var images = document.querySelectorAll('section figure img');
 var figCaptions = document.querySelectorAll('section figcaption');
 var counter = 0;
+var round = 0;
 var userScore = 0;
 var timer;
 //array of quiz questions
@@ -55,7 +56,7 @@ var media = [
 
 
 function playClickHandler(event) {
-  var number = 29;
+  var number = 19;
   //countdown timer
   timer = setInterval(function() {
     button.style.color = '#f00';
@@ -64,43 +65,60 @@ function playClickHandler(event) {
 
     if (number < 0) {
       clearInterval(timer);
+      audio.pause();
     }
   }, 1000);
   //prevent page jumping unless it's last page
-  if (userScore !== media.length) {
+  if (counter !== media.length) {
     event.preventDefault();
   }
 
   button.style.cursor = 'default';
   audio.play();
-  counter++;
 }
 
 function imagesClickHandler(event) {
   var clicked = event.target;
 
-  if (clicked.alt === media[userScore].answer) {
+  if (counter > round) {
+    button.removeEventListener('click', imagesClickHandler);
+    return;
+  }
+
+  if (clicked.alt === media[counter].answer) {
     //if user chooses right answer
     clicked.style.outline = '5px solid #0f0';
+    counter++;
+
     button.style.color = '';
     button.style.cursor = 'pointer';
     clearInterval(timer);
     audio.pause();
     userScore++;
     storeScore();
-    if (userScore === media.length) {
-      button.removeEventListener('click', nextClickHandler);
-      button.innerHTML = 'RESULTS!';
-      button.href = 'results.html';
-      //otherwise have button display next round message
-    } else {
-      button.innerHTML = 'Play round ' + (userScore + 1);
-      button.addEventListener('click', nextClickHandler);
-    }
+    //if user chooses wrong answer
   } else if (clicked.getAttribute('src')) {
     clicked.style.outline = '5px solid #f00';
+    counter++;
+
+    button.style.color = '';
+    button.style.cursor = 'pointer';
+    clearInterval(timer);
+    audio.pause();
+
+  }
+
+  if (counter === media.length) {
+    button.removeEventListener('click', nextClickHandler);
+    button.innerHTML = 'RESULTS!';
+    button.href = 'results.html';
+    //otherwise have button display next round message
+  } else {
+    button.innerHTML = 'Play round ' + (counter + 1);
+    button.addEventListener('click', nextClickHandler);
   }
 }
+
 
 function nextClickHandler() {
 
@@ -111,6 +129,7 @@ function nextClickHandler() {
 
   displayQuiz();
   audio.play();
+  round++;
 }
 
 function generateRandomNumber(max){
@@ -118,7 +137,7 @@ function generateRandomNumber(max){
 }
 
 function displayQuiz() {
-  audio.src = media[userScore].song;
+  audio.src = media[counter].song;
 
   var rand1 = generateRandomNumber(images.length);
   var rand2 = generateRandomNumber(images.length);
@@ -135,16 +154,16 @@ function displayQuiz() {
   }
 
   //set image and hook for correct answer, along with album/artist info
-  images[rand1].src = media[userScore].choice1[0];
-  images[rand1].setAttribute('alt', media[userScore].answer);
-  figCaptions[rand1].innerHTML = '<i>' + media[userScore].choice1[1] + '</i>' + '<br>' + media[userScore].choice1[2];
+  images[rand1].src = media[counter].choice1[0];
+  images[rand1].setAttribute('alt', media[counter].answer);
+  figCaptions[rand1].innerHTML = '<i>' + media[counter].choice1[1] + '</i>' + '<br>' + media[counter].choice1[2];
   //set image and album artist info for incorrect answers
-  images[rand2].src = media[userScore].choice2[0];
-  figCaptions[rand2].innerHTML = '<i>' + media[userScore].choice2[1] + '</i>' + '<br>' + media[userScore].choice2[2];
-  images[rand3].src = media[userScore].choice3[0];
-  figCaptions[rand3].innerHTML = '<i>' + media[userScore].choice3[1] + '</i>' + '<br>' + media[userScore].choice3[2];
-  images[rand4].src = media[userScore].choice4[0];
-  figCaptions[rand4].innerHTML = '<i>' + media[userScore].choice4[1] + '</i>' + '<br>' + media[userScore].choice4[2];
+  images[rand2].src = media[counter].choice2[0];
+  figCaptions[rand2].innerHTML = '<i>' + media[counter].choice2[1] + '</i>' + '<br>' + media[counter].choice2[2];
+  images[rand3].src = media[counter].choice3[0];
+  figCaptions[rand3].innerHTML = '<i>' + media[counter].choice3[1] + '</i>' + '<br>' + media[counter].choice3[2];
+  images[rand4].src = media[counter].choice4[0];
+  figCaptions[rand4].innerHTML = '<i>' + media[counter].choice4[1] + '</i>' + '<br>' + media[counter].choice4[2];
 }
 
 function storeScore(){
