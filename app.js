@@ -78,6 +78,10 @@ function playClickHandler(event) {
 function imagesClickHandler(event) {
   var clicked = event.target;
 
+  //make sure user clicks on a picture
+  if (!clicked.getAttribute('src')) {
+    return;
+  }
   //don't allow more than one click per round
   if (counter > round) {
     return;
@@ -85,23 +89,12 @@ function imagesClickHandler(event) {
 
   if (clicked.alt === correct) {
     //if user chooses right answer
-    clicked.style.outline = '5px solid #0f0';
-    counter++;
-
-    button.style.color = '';
-    button.style.cursor = 'pointer';
-    clearInterval(timer);
-    audio.pause();
+    onGuess();
     userScore++;
     storeScore();
     //if user chooses wrong answer
   } else if (clicked.getAttribute('src')) {
-    counter++;
-
-    button.style.color = '';
-    button.style.cursor = 'pointer';
-    clearInterval(timer);
-    audio.pause();
+    onGuess();
   }
 
   //fade incorrect answers
@@ -110,7 +103,8 @@ function imagesClickHandler(event) {
       images[j].style.opacity = '0.2';
       images[j].style.outline = '';
     } else {
-      images[j].style.outline = '5px solid #0f0';
+      //highlight correct answer
+      images[j].style.outline = '5px solid #94d594';
     }
   }
 
@@ -118,7 +112,6 @@ function imagesClickHandler(event) {
   for (var i = 0; i < images.length; i++) {
     images[i].className = '';
   }
-
   displayNextOrResults();
 }
 
@@ -156,9 +149,10 @@ function displayQuiz() {
     rand4 = generateRandomNumber(images.length);
   }
 
-  //set image and hook for correct answer, along with album/artist info
+  //set image, along with album/artist info
   images[rand1].src = media[counter].choice1[0];
   images[rand1].setAttribute('alt', media[counter].choice1[0]);
+  //set hook for correct answer
   correct = media[counter].choice1[0];
   figCaptions[rand1].innerHTML = '<i>' + media[counter].choice1[1] + '</i>' + '<br>' + media[counter].choice1[2];
   //set image and album artist info for incorrect answers
@@ -171,6 +165,7 @@ function displayQuiz() {
 }
 
 function onGuess() {
+  counter++;
   button.style.color = '';
   button.style.cursor = 'pointer';
   clearInterval(timer);
