@@ -8,6 +8,8 @@ body {
 header {
   max-width: 960px;
   background-color: lightgrey;
+  background: linear-gradient(lightgrey 30%, white); 
+  max-width: 960px;
 }
 
 nav {
@@ -72,7 +74,7 @@ h1 {
 
 
 p {
-  font-family: Courier New, Courier, monospace;
+  /*font-family: Courier New, Courier, monospace;*/
   color: black;
 }
 
@@ -119,7 +121,7 @@ tr {
 }
 
 .status-text {
-  font-family: Courier New, Courier, monospace;
+  /*font-family: Courier New, Courier, monospace;*/
 }
 
 .results_text {
@@ -201,6 +203,7 @@ img {
 }
 
 #footer_logo {
+  margin-top: 85px;
   height: 75px;
   width: 75px;   
 }
@@ -211,6 +214,9 @@ footer {
   text-align: center;
   font-size: 20px;
   margin: 15px 0px;
+  /*background-color: lightgrey;*/
+  background: linear-gradient(white, lightgray); 
+  height: 217px;
 }
 
 #filledIn {
@@ -234,17 +240,18 @@ footer {
 }
 
 #start-game {
-  height: 100%;
-  display: block;
-  text-align: center;
-  margin: .75em auto; 
+    height: 100%;
+    display: block;
+    text-align: center;
+    margin: .75em auto; 
 }
 
-section figure img {
+
+.cursor {
   cursor: pointer;
 }
 
-#footer2 {
-  background: linear-gradient(white 40%, grey); /* Standard syntax */
+/*#footer2 {
+  background: linear-gradient(white 40%, grey); 
   max-width: 960px;
-}
+}*/
