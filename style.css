@@ -218,13 +218,19 @@ footer {
 .button:hover {
     color:darkslategrey;
 }
-#bodytag{   
-     
-}
 
 #start-game {
     height: 100%;
     display: block;
     text-align: center;
     margin: .75em auto; 
+}
+
+section figure img {
+cursor: pointer;
+}
+
+#footer2{
+  background: linear-gradient(white 40%, grey); /* Standard syntax */
+  max-width: 960px;
 }
