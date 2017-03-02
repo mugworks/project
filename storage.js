@@ -4,17 +4,33 @@ var loadEmail;
 var loadScore;
 var playGame = document.getElementById('play_game');
 
-function playHandler() { //Sets storage for username and email
+function playHandler(event) { //Sets storage for username and email
   var nameDomElement = document.getElementById('username');
   var emailDomElement = document.getElementById('email');
+  var nameData;
+  var emailData
 
-  var nameData = nameDomElement.value;
-  JSON.stringify(nameData);
-  localStorage.setItem('nameString', nameData);
+  //form name validation
+  if (!nameDomElement.value) {
+    nameDomElement.style.outline = '2px solid #f00';
+    event.preventDefault();
 
-  var emailData = emailDomElement.value;
-  JSON.stringify(emailData);
-  localStorage.setItem('emailString', emailData);
+  } else {
+    nameData = nameDomElement.value;
+    JSON.stringify(nameData);
+    localStorage.setItem('nameString', nameData);
+  }
+
+  //form email validation
+  if (!emailDomElement.value) {
+    emailDomElement.style.outline = '2px solid #f00';
+    event.preventDefault();
+  } else {
+    emailDomElement.value;
+    JSON.stringify(emailData);
+    localStorage.setItem('emailString', emailData);
+  }
+
 }
 
 if (playGame) {
