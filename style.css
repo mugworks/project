@@ -145,7 +145,16 @@ input[name="submit"]:hover {
   clear: both;
   width: 940px;
   margin: 0px auto;
-  margin-bottom: 50px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid;
+}
+
+hr {
+  padding-bottom: 50px;
+  border-left: none;
+  margin-bottom: 0;
+  border-bottom: none;
+  border-right: none;
 }
 
 section {
@@ -196,6 +205,7 @@ footer {
   margin: 0px 0px 40px 0px;
   background: linear-gradient(white, #C3C5C6 70%); 
   height: 130px;
+  margin-top:20px;
 }
 
 #filledIn {
