@@ -25,3 +25,5 @@ else{
     paraOther.textContent = ('Thanks for playing!');
   }
 };
+// comment for github
+
