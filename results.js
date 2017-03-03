@@ -1,6 +1,6 @@
 'use strict';
 
-var comments = ['', 'Only one right answer, Grandma!', 'Two right. Try again, poser!', 'Three right answers. Nice work sucka!', 'Four correct answers. your audiophile skills are strong!', 'Wow! Perfect Score! You are a music junkie!'];
+var comments = ['', 'Only one right answer, Grandma!', 'Two right. Try again, poser!', 'Three right answers. Nice work sucka!', 'Four correct answers. Your audiophile skills are strong!', 'Wow! Perfect Score! You are a music junkie!'];
 
 
 
