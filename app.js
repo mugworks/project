@@ -1,6 +1,4 @@
 'use strict';
-localStorage.clear();
-
 var button = document.getElementById('start-game');
 var audio = document.querySelector('audio');
 var section = document.querySelector('section');
