@@ -26,7 +26,7 @@ function playHandler(event) { //Sets storage for username and email
     emailDomElement.style.outline = '2px solid #f00';
     event.preventDefault();
   } else {
-    emailDomElement.value;
+    emailData = emailDomElement.value;
     JSON.stringify(emailData);
     localStorage.setItem('emailString', emailData);
   }
