@@ -2,6 +2,8 @@
 
 var comments = ['', 'Only one right answer, Grandma!', 'Two right. Try again, poser!', 'Three right answers. Nice work sucka!', 'Four correct answers. your audiophile skills are strong!', 'Wow! Perfect Score! You are a music junkie!'];
 
+
+
 loadHandler();
 if (loadName === null) {
   loadName = 'Player';
@@ -24,6 +26,7 @@ if (loadScore === null) {
 
   if (loadScore == 5) {
     var paraText = document.getElementById('congrats');
+
     paraText.textContent = ('Congratulations, ' + loadName + '! Your voucher for the new Black Keys will be emailed to ' + loadEmail + '! Redeem your copy today only.');
   } else {
     var paraOther = document.getElementById('results_text');
