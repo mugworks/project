@@ -30,17 +30,14 @@ function playHandler(event) { //Sets storage for username and email
     JSON.stringify(emailData);
     localStorage.setItem('emailString', emailData);
   }
-
 }
 
 if (playGame) {
   playGame.addEventListener('click', playHandler);
 }
+
 function loadHandler() { //retrieves name, email, and score data
   loadName = localStorage.getItem('nameString');
-  console.log(loadName);
   loadEmail = localStorage.getItem('emailString');
-  console.log(loadEmail);
   loadScore = localStorage.getItem('score');
-  console.log(loadScore);
 }

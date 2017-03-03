@@ -1,16 +1,16 @@
 'use strict';
 
-var comments = ['Only one right. Grandma level.', 'Two right. Poser level.', 'Mid-level knowledge.', 'Your audiophile skills are strong', 'Wow! Perfect Score! You are a music junkie!'];
+var comments = ['Only one right answer, Grandma!', 'Two right. Try again, poser!', 'Three right answers. Nice work sucka!', 'Four correct answers. your audiophile skills are strong!', 'Wow! Perfect Score! You are a music junkie!'];
 
-// var score = 2;
 loadHandler();
-if(loadScore == 0) {
+
+if(loadScore == 0 || loadScore === null) {
   var zeroComment = document.getElementById('zero_score_text');
-  zeroComment.textContent = (loadName + ' , you got zero correct answers. Come to r&d immediately!');
+  zeroComment.textContent = (loadName + ', you got zero correct answers. Come to r&d immediately for some musical knowledge!');
 } else {
   for (var i = 1; i <= loadScore; i++) {
     var tableCell = document.getElementById('score' + [i]);
-    tableCell.setAttribute('id', 'filledIn');
+    tableCell.classList.add('filledIn', 'animated', 'slideInLeft');
   }
   var tableComment = document.getElementById('status' + [loadScore]);
   tableComment.textContent = comments[loadScore - 1];
@@ -18,12 +18,12 @@ if(loadScore == 0) {
 
   if (loadScore == 5) {
     var paraText = document.getElementById('congrats');
-    paraText.textContent = ('Congratulations, ' + loadName + '! Your voucher will be emailed to ' + loadEmail + '!');
+    paraText.textContent = ('Congratulations, ' + loadName + '! Your voucher for the new Black Keys will be emailed to ' + loadEmail + '! Redeem your copy today only.');
   } else {
     var paraOther = document.getElementById('results_text');
-    paraOther.textContent = ('Thanks for playing ' + loadName + '. Try again to win a voucher!');
+    paraOther.textContent = ('Thanks for playing ' + loadName + '. Try again to win a voucher for the new Black Keys record!');
   }
 };
 
-localStorage.clear();
+// localStorage.clear();
 
