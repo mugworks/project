@@ -59,10 +59,7 @@ function playClickHandler(event) {
     number--;
 
     if (number < 0) {
-      clearInterval(timer);
-      audio.pause();
-      counter++;
-      button.style.color = '';
+      onGuess();
       displayNextOrResults();
     }
   }, 1000);
