@@ -1,4 +1,5 @@
 'use strict';
+
 var button = document.getElementById('start-game');
 var audio = document.querySelector('audio');
 var section = document.querySelector('section');
@@ -54,7 +55,7 @@ function playClickHandler(event) {
   var number = 19;
   //countdown timer
   timer = setInterval(function() {
-    button.style.color = 'rgb(230, 7, 7)';
+    button.style.color = '#f00';
     button.textContent = number;
     number--;
 
@@ -78,10 +79,6 @@ function playClickHandler(event) {
 function imagesClickHandler(event) {
   var clicked = event.target;
 
-  //make sure user clicks on a picture
-  if (!clicked.getAttribute('src')) {
-    return;
-  }
   //don't allow more than one click per round
   if (counter > round) {
     return;
@@ -89,29 +86,38 @@ function imagesClickHandler(event) {
 
   if (clicked.alt === correct) {
     //if user chooses right answer
-    onGuess();
+    clicked.style.outline = '5px solid #0f0';
+    counter++;
+
+    button.style.color = '';
+    button.style.cursor = 'pointer';
+    clearInterval(timer);
+    audio.pause();
     userScore++;
     storeScore();
     //if user chooses wrong answer
   } else if (clicked.getAttribute('src')) {
-    onGuess();
-  }
+    clicked.style.outline = '5px solid #f00';
+    counter++;
 
-  //fade incorrect answers
-  for (var j = 0; j < images.length; j++) {
-    if (images[j].alt !== correct) {
-      images[j].style.opacity = '0.2';
-      images[j].style.outline = '';
-    } else {
-      //highlight correct answer
-      images[j].style.outline = '5px solid #94d594';
+    button.style.color = '';
+    button.style.cursor = 'pointer';
+    clearInterval(timer);
+    audio.pause();
+
+    //fade incorrect answers
+    for (var j = 0; j < images.length; j++) {
+      if (images[j].alt !== correct) {
+        images[j].style.opacity = '0.2';
+        images[j].style.outline = '';
+      }
     }
   }
-
   //remove hand cursor for image hover after user guess
   for (var i = 0; i < images.length; i++) {
     images[i].className = '';
   }
+
   displayNextOrResults();
 }
 
@@ -149,10 +155,9 @@ function displayQuiz() {
     rand4 = generateRandomNumber(images.length);
   }
 
-  //set image, along with album/artist info
+  //set image and hook for correct answer, along with album/artist info
   images[rand1].src = media[counter].choice1[0];
   images[rand1].setAttribute('alt', media[counter].choice1[0]);
-  //set hook for correct answer
   correct = media[counter].choice1[0];
   figCaptions[rand1].innerHTML = '<i>' + media[counter].choice1[1] + '</i>' + '<br>' + media[counter].choice1[2];
   //set image and album artist info for incorrect answers
@@ -162,14 +167,6 @@ function displayQuiz() {
   figCaptions[rand3].innerHTML = '<i>' + media[counter].choice3[1] + '</i>' + '<br>' + media[counter].choice3[2];
   images[rand4].src = media[counter].choice4[0];
   figCaptions[rand4].innerHTML = '<i>' + media[counter].choice4[1] + '</i>' + '<br>' + media[counter].choice4[2];
-}
-
-function onGuess() {
-  counter++;
-  button.style.color = '';
-  button.style.cursor = 'pointer';
-  clearInterval(timer);
-  audio.pause();
 }
 
 function displayNextOrResults() {

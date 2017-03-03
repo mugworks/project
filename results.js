@@ -1,10 +1,16 @@
 'use strict';
 
-var comments = ['Only one right answer, Grandma!', 'Two right. Try again, poser!', 'Three right answers. Nice work sucka!', 'Four correct answers. your audiophile skills are strong!', 'Wow! Perfect Score! You are a music junkie!'];
+var comments = ['', 'Only one right answer, Grandma!', 'Two right. Try again, poser!', 'Three right answers. Nice work sucka!', 'Four correct answers. your audiophile skills are strong!', 'Wow! Perfect Score! You are a music junkie!'];
 
 loadHandler();
+if (loadName === null) {
+  loadName = 'Player';
+}
 
-if(loadScore == 0 || loadScore === null) {
+if (loadScore === null) {
+  var zeroComment = document.getElementById('zero_score_text');
+  zeroComment.textContent = ('Player, you got zero correct answers. Come to r&d immediately for some musical knowledge!');
+} else if (loadScore == 0) {
   var zeroComment = document.getElementById('zero_score_text');
   zeroComment.textContent = (loadName + ', you got zero correct answers. Come to r&d immediately for some musical knowledge!');
 } else {
@@ -13,7 +19,7 @@ if(loadScore == 0 || loadScore === null) {
     tableCell.classList.add('filledIn', 'animated', 'slideInLeft');
   }
   var tableComment = document.getElementById('status' + [loadScore]);
-  tableComment.textContent = comments[loadScore - 1];
+  tableComment.textContent = comments[loadScore];
 
 
   if (loadScore == 5) {
