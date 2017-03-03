@@ -30,7 +30,6 @@ function playHandler(event) { //Sets storage for username and email
     JSON.stringify(emailData);
     localStorage.setItem('emailString', emailData);
   }
-
 }
 
 if (playGame) {
